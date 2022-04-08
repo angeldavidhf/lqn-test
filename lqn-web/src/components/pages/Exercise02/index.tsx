@@ -21,12 +21,9 @@ export default function Exercise02 () {
     };
 
     const findPaths = (names: string[]) => {
-        //const t0 = process.hrtime();
         const lookup = buildLookup(names);
-
         let maxNum = 0;
-        let maxPaths: any = [];
-       
+
         const parseResult = (arr: any) => {
             if (typeof arr[0] === 'object') {
                 arr.forEach((el: any) => parseResult(el))
@@ -34,11 +31,10 @@ export default function Exercise02 () {
             else {
                 if (arr.length > maxNum) {
                     maxNum = arr.length;
-                    maxPaths = [arr];
                 }
 
                 if (arr.length === maxNum) {
-                    maxPaths.push(arr)
+                    setPokemonsSort(arr);
                 }
             }
         };
@@ -52,12 +48,6 @@ export default function Exercise02 () {
             const res = searchWords(word, [word]);
             parseResult(res);
         });
-
-        //const t1 = process.hrtime(t0);
-        //console.info('Execution time (hr): %ds %dms', t1[0], t1[1] / 1000000);
-        console.log('Max Path:', maxNum);
-        console.log('Matching Paths:', maxPaths.length);
-        console.log('Example Path:', maxPaths);
     };
 
     useEffect(() => {
