@@ -1,0 +1,18 @@
+.exercise02 {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pokemons__list {
+    background-color: #DDDDDD;
+    margin: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    width: 50em;
+    max-height: 400px;
+    overflow-y: scroll;
+}
